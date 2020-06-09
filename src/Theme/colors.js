@@ -1,0 +1,21 @@
+export const stepGreen = '#49d16d'
+export const stepGrey = '#dbdbdb'
+export const mainBlue = '#00B7FE'
+export const careerBlue = '#00b4ff'
+export const buttonGreen = '#32e09c'
+export const buttonOkayGreen = 'rgb(52, 224, 156)'
+export const chatPurple = '#583ea1'
+export const notificationRed = '#FE1948'
+export const indicatingYellow = '#FFD500'
+export const mainBackgroundGrey = '#FBFBFB'
+export const cardViewGrey = '#f5f5f5'
+export const chatBackground = '#FDFDFD'
+export const darkGreyFont = '#545454'
+export const lightGreyFont = '#757575'
+export const darkBorderGrey = '#9e9e9e'
+export const selectedColor = '#583ea1'
+export const blackColor = '#000000'
+export const bluePurpleGradient = `
+    linear-gradient(to right, rgba(0, 101, 255, 0.7), rgba(0, 101, 255, 0.7) 35%, rgba(95, 12, 211, 0.7))
+`
+export const whiteBackgroundColor = 'rgba(255, 255, 255, 0.75)'
