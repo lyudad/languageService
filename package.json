@@ -25,6 +25,7 @@
     "query-string": "5.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-hook-form": "^5.7.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -54,7 +55,8 @@
     "styled-system": "3.0.2",
     "superagent": "^3.8.3",
     "sweetalert": "^2.1.0",
-    "twix": "^1.2.1"
+    "twix": "^1.2.1",
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
