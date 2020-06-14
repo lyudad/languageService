@@ -1,16 +1,16 @@
 import axios from "axios";
 
-export const SIGN_UP = "SIGN_UP";
+export const LOGIN = "LOGIN";
 
-export const signUpAction = (data) => {
-  return (dispatch) => { // TODO async ?
+export const loginAction = (data) => {
+  return (dispatch) => {
     return axios
-      .post("http://localhost:3001/users", { ...data })
+      .post("http://localhost:3001/login", { ...data })
       .then(
         (response) => (
           (data["accessToken"] = response.data.accessToken),
           dispatch({
-            type: SIGN_UP,
+            type: LOGIN,
             data,
           })
         )

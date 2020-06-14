@@ -1,22 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
-import { CustomInput, CustomSelect, CustomCheckbox } from "../inputs";
+import { CustomInput, CustomSelect } from "../inputs";
 // import { schema } from "/Helpers/Auth/schema";
-import { schema } from "../../../../Helpers/Auth/schema";
+import { schemaSignUp } from "../../../../Helpers/Auth/schema";
 
 import { InputContainer, LabelAuth, ErrorAuthParagraph } from "../styles";
 
-export const SignUp = ({ signUpAction }) => {  
-
+export const SignUp = ({ signUpUser, setTemp }) => {
   const { handleSubmit, control, errors } = useForm({
-    validationSchema: schema,
+    validationSchema: schemaSignUp,
   });
   const typeGender = ["- - - ", "Male", "Female", "Other"];
 
   const onSubmit = (data) => {
-    console.log(data)
-    signUpAction(data);
+    signUpUser(data);
   };
 
   return (
@@ -70,15 +68,13 @@ export const SignUp = ({ signUpAction }) => {
         />
       </InputContainer>
 
-      <Button htmlType="submit" type="primary"  >
+      <Button htmlType="submit" type="primary">
         Create Account
       </Button>
+      <Button onClick={() => setTemp(false)}>go to login</Button>
     </form>
   );
 };
-
-
-
 
 /* <InputContainer>
         <LabelAuth>I agree with...</LabelAuth>

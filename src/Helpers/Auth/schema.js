@@ -1,18 +1,18 @@
 import * as yup from "yup";
 
-export const schema = yup.object().shape({
-  username: yup
-    .string()
-    .required()
-    .trim(),
+export const schemaSignUp = yup.object().shape({
+  username: yup.string().required(),
   email: yup
     .string()
     .email()
-    .trim()
     .required(),
-  password: yup
+  password: yup.string().min(8),
+});
+
+export const schemaLogin = yup.object().shape({
+  email: yup
     .string()
-    .min(8)
-    .trim(),
-  isTermsOfUse: yup.mixed().required(),
+    .email()
+    .required(),
+  password: yup.string().min(8),
 });

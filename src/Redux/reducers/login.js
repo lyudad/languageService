@@ -1,19 +1,17 @@
 import { createReducer } from "Helpers/redux";
 
-import { SIGN_UP } from "Redux/actions/signUp";
+import { LOGIN } from "../actions/login";
 
 const initialState = {
   user: {
-    username: "",
     email: "",
     password: "",
-    gender: "",
   },
   isAuth: false,
 };
 
-const signUpReducer = {
-  [SIGN_UP]: (state, action) => {
+const loginReducer = {
+  [LOGIN]: (state, action) => {
     return {
       ...state,
       user: action.data,
@@ -22,4 +20,4 @@ const signUpReducer = {
   },
 };
 
-export default createReducer(initialState, signUpReducer);
+export default createReducer(initialState, loginReducer);

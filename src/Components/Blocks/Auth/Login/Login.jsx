@@ -2,16 +2,16 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
 import { CustomInput } from "../inputs";
-import { schema } from "../../../../Helpers/Auth/schema";
+import { schemaLogin } from "../../../../Helpers/Auth/schema";
 
 import { InputContainer, LabelAuth, ErrorAuthParagraph } from "../styles";
 
-export const Login = ({ setTemp }) => {
+export const Login = ({ loginUser, setTemp }) => {
   const { handleSubmit, control, errors } = useForm({
-    validationSchema: schema,
+    validationSchema: schemaLogin,
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => loginUser(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +45,7 @@ export const Login = ({ setTemp }) => {
         Login
       </Button>
 
-      <p onClick={() => setTemp(false)}>go to Sign UP</p>
+      <Button onClick={() => setTemp(true)}>go to signUp</Button>
     </form>
   );
 };
