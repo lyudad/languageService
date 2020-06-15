@@ -6,7 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^1.2.3",
     "@wojtekmaj/react-daterange-picker": "^2.0.0",
-    "antd": "^3.7.0",
+    "antd": "^3.26.18",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "emoji-mart": "^2.6.1",
