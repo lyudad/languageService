@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
 import { CustomInput, CustomSelect } from "../inputs";
 // import { schema } from "/Helpers/Auth/schema";
 import { schemaSignUp } from "../../../../Helpers/Auth/schema";
 
-import { InputContainer, LabelAuth, ErrorAuthParagraph } from "../styles";
+import {
+  InputContainer,
+  LabelAuth,
+  ErrorAuthParagraph,
+  CustomForm,
+  CustomMsg,
+} from "../styles";
 
-export const SignUp = ({ signUpUser, setTemp }) => {
+export const SignUp = ({ addNewuser, setTemp }) => {
+  const [statusLogin, setStatusLogin] = useState(false);
   const { handleSubmit, control, errors } = useForm({
     validationSchema: schemaSignUp,
   });
   const typeGender = ["- - - ", "Male", "Female", "Other"];
 
   const onSubmit = (data) => {
-    signUpUser(data);
+    let response = addNewuser(data);
+    setStatusLogin(response);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <CustomForm onSubmit={handleSubmit(onSubmit)}>
+      {statusLogin.type && (
+        <CustomMsg type={statusLogin.type}>
+          <p>{statusLogin.msg}</p>
+        </CustomMsg>
+      )}
       <InputContainer>
         <LabelAuth>User Name</LabelAuth>
         <Controller
@@ -72,7 +85,7 @@ export const SignUp = ({ signUpUser, setTemp }) => {
         Create Account
       </Button>
       <Button onClick={() => setTemp(false)}>go to login</Button>
-    </form>
+    </CustomForm>
   );
 };
 

@@ -8,6 +8,7 @@ const initialState = {
     email: "",
     password: "",
     gender: "",
+    id: null,
   },
   isAuth: false,
 };

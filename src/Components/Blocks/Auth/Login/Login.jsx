@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
 import { CustomInput } from "../inputs";
 import { schemaLogin } from "../../../../Helpers/Auth/schema";
 
-import { InputContainer, LabelAuth, ErrorAuthParagraph } from "../styles";
+import {
+  InputContainer,
+  LabelAuth,
+  ErrorAuthParagraph,
+  CustomForm,
+  CustomMsg,
+} from "../styles";
 
-export const Login = ({ loginUser, setTemp }) => {
+export const Login = ({ login, setTemp }) => {
+  const [statusLogin, setStatusLogin] = useState(false);
   const { handleSubmit, control, errors } = useForm({
     validationSchema: schemaLogin,
   });
 
-  const onSubmit = (data) => loginUser(data);
+  const onSubmit = (data) => {
+    let response = login(data);
+    setStatusLogin(response);
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <CustomForm onSubmit={handleSubmit(onSubmit)}>
+      {statusLogin.type && (
+        <CustomMsg type={statusLogin.type}>{statusLogin.msg}</CustomMsg>
+      )}
       <InputContainer>
         <LabelAuth>Email</LabelAuth>
         <Controller
@@ -46,6 +59,6 @@ export const Login = ({ loginUser, setTemp }) => {
       </Button>
 
       <Button onClick={() => setTemp(true)}>go to signUp</Button>
-    </form>
+    </CustomForm>
   );
 };
