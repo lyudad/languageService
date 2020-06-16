@@ -1,6 +1,6 @@
 import React from 'react'
 import { hydrate, render } from 'react-dom'
-import './index.css'
+// import './index.css'
 import App from './Components/App'
 
 import { Provider } from 'react-redux'

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     MainContainer,
 } from './style'
@@ -9,12 +9,8 @@ const { Meta } = Card;
 
 
 
-class Cards extends Component {
-
-
-  render()
-  {
-      console.log(this)
+export const Cards = ({elem}) => {
+      
     return (
    
 <MainContainer>
@@ -22,15 +18,15 @@ class Cards extends Component {
             <Card
                 hoverable
                 style={{ width: 240 }}
-                cover={<img alt="example" src={this.props.elem.url}  style={{height: "240px"}} />}
+                cover={<img alt="example" src={elem.url}  style={{height: "240px"}} />}
 
             >
-            <Meta title={this.props.elem.name}/>
+            <Meta title={elem.name}/>
                 <div>
-                    Type: {this.props.elem.type}
+                    Type: {elem.type}
                 </div>
               <div>
-                Difficulty: {this.props.elem.difficulty}
+                Difficulty: {elem.difficulty}
               </div>
 
             </Card>
@@ -39,6 +35,5 @@ class Cards extends Component {
          
     )
   }
-}
 
-export default Cards
+

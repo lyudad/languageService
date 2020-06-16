@@ -1,40 +1,32 @@
-import React, { PureComponent } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import React from 'react';
 
-import * as routes from 'Constants/routes'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
 
+import 'antd/dist/antd.css';
 import Categories from './Pages/Categories'
-import Home from "./Pages/Home"
 
-class App extends PureComponent {
-    
+import {Home} from "./Pages/Home"
+// import './styles.js';
 
-  render() {
-    const { location } = this.props
+// import {ProductList} from "Pages/ProductList/ProductList";
+// import {ProductDetails} from "Pages/ProductDetails"
+
+
+function App() {
     return (
-        <Switch location={location}>
-            <Route component={Categories} exact path={routes.initial} />
-
-            <Route component={Home} path={routes.initial} />
-            
-        </Switch>
-        
-    )
-  }
+        <Router>
+            <Switch>
+                <Route path="/" component={Home} exact/>
+                <Route path="/categories" component={Categories} />
+            </Switch>
+        </Router>
+    );
 }
 
+export default App;
 
 
-
-const actions = {
-}
-
-const selector = createStructuredSelector({
-})
-
-export default connect(
-  selector,
-  actions
-)(App)
