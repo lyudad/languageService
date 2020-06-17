@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import * as routes from 'Constants/routes'
 
 import Categories from './Pages/Categories'
+import { CardFlipGame } from './Blocks'
 
 class App extends PureComponent {
 
@@ -13,7 +14,7 @@ class App extends PureComponent {
     const { location } = this.props
     return (
         <Switch location={location}>
-          <Route component={Categories} exact path={routes.initial} />
+          <Route component={CardFlipGame} exact path={routes.initial} />
           <Redirect to="/" />
         </Switch>
     )
