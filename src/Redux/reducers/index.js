@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
 import industries from './industries'
-import {homepage} from "./homepage.reducer"
+import {homepage} from "./homepage.reducers"
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   homepage,
-  industries,
+  // industries,
 })
 
-export default rootReducer
+export default appReducer

@@ -7,12 +7,10 @@ import {
 import  {Card}  from 'antd';
 const { Meta } = Card;
 
-
-
 export const Cards = ({elem}) => {
-      
+    
     return (
-   
+
 <MainContainer>
 
             <Card

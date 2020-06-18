@@ -9,9 +9,9 @@ import { ConnectedRouter } from 'react-router-redux'
 // import { PersistGate } from 'redux-persist/integration/react'
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import CreateStore from './Redux'
+import CreatorStore from './Redux'
 
-const { store } = CreateStore()
+const { store } = CreatorStore()
 const history = createBrowserHistory()
 const rootElement = document.getElementById('root')
 

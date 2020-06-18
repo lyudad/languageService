@@ -9,11 +9,8 @@ import {
 import 'antd/dist/antd.css';
 import Categories from './Pages/Categories'
 
-import {Home} from "./Pages/Home"
+import {Home} from "./Pages/Home/Home"
 // import './styles.js';
-
-// import {ProductList} from "Pages/ProductList/ProductList";
-// import {ProductDetails} from "Pages/ProductDetails"
 
 
 function App() {
