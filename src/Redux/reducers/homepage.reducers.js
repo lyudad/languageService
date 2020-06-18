@@ -1,7 +1,7 @@
 import {SHOW_CONTENT} from "../actions/homepage.actions"
 
 const initialState = {
-    data: [
+    contentCards: [
         {
             id: 1,
             name: "Video",
@@ -48,14 +48,8 @@ const initialState = {
 }
 //
 export const homepage = (state = initialState, action) => {
-    switch(action.type){
-        case SHOW_CONTENT:
-        {
-            return{
-                ...state,
-                showContent: action.data
-            }
-        }
+
+    switch ("") {
         default:
             return state
 
