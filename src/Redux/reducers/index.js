@@ -9,4 +9,3 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
-Еще хотел спросить, в данный момент делаю карточки, почти закончил.
