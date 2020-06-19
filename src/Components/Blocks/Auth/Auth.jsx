@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { signUpAction } from "../../../Redux/actions/signUp";
-import { connect } from "react-redux";
-import { SignUp } from "./SignUp/SignUp";
-import { Login } from "./Login/Login";
-import { loginAction } from "../../../Redux/actions/login";
+import { SignUp } from "Components/Blocks/Auth/SignUp/SignUp";
+import { Login } from "Components/Blocks/Auth/Login/Login";
 import { isEmpty } from "lodash";
+import { connect } from "react-redux";
+import { authAction } from "Redux/actions/auth";
 
-const Auth = ({ signUpUser, loginUser }) => {
-  const [temp, setTemp] = useState(true);
+export const Auth = ({ authUser }) => {
+  console.log(authUser); //undefined
+
+  const [changeForm, setChangeForm] = useState(true);
   const [usersDB, setUsersDB] = useState({
     users: [
       {
@@ -27,17 +28,13 @@ const Auth = ({ signUpUser, loginUser }) => {
     ],
   });
   useEffect(() => {
-    console.log(`useEffect usersDB >>>> `, usersDB);
+    console.log(`render`);
   });
-
+    // useCallback ?
   const addNewuser = (data) => {
     let user = getUserByEmail(data);
     if (isEmpty(user)) {
-      let newUserDB = usersDB;
-      newUserDB.users.push({ id: Date.now(), ...data });
-      setUsersDB(newUserDB);
-      signUpUser({ id: Date.now(), ...data });
-      
+      authUser({ id: Date.now(), ...data });
       return {
         type: "SUCCESS",
         msg: "You have successfully registered",
@@ -54,7 +51,7 @@ const Auth = ({ signUpUser, loginUser }) => {
     let user = getUserByEmail(data);
     if (!isEmpty(user)) {
       if (user[0].password === data.password) {
-        loginUser(user[0]);
+        authUser(user[0]);
         return {
           type: "SUCCESS",
           msg: "You have successfully logged in",
@@ -80,18 +77,16 @@ const Auth = ({ signUpUser, loginUser }) => {
     return user;
   };
 
-  return temp ? (
-    <SignUp signUpUser={signUpUser} addNewuser={addNewuser} setTemp={setTemp} />
+  return changeForm ? (
+    <SignUp addNewuser={addNewuser} setChangeForm={setChangeForm} />
   ) : (
-    <Login loginUser={loginUser} login={login} setTemp={setTemp} />
+    <Login login={login} setChangeForm={setChangeForm} />
   );
 };
 
 const mapStateToProps = (store) => {};
-
 const mapDispathToProps = {
-  signUpUser: signUpAction,
-  loginUser: loginAction,
+  authUser: authAction,
 };
 
 export default connect(null, mapDispathToProps)(Auth);

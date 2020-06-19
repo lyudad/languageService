@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
-import { CustomInput, CustomSelect } from "../inputs";
-// import { schema } from "/Helpers/Auth/schema";
-import { schemaSignUp } from "../../../../Helpers/Auth/schema";
+import { CustomInput } from "Components/Blocks/Auth/Blocks/CustomInput"
+import { CustomSelect } from "Components/Blocks/Auth/Blocks/CustomSelect"
+import { schemaSignUp } from "Helpers/Auth/schema";
 
 import {
   InputContainer,
@@ -13,7 +13,7 @@ import {
   CustomMsg,
 } from "../styles";
 
-export const SignUp = ({ addNewuser, setTemp }) => {
+export const SignUp = ({ addNewuser, setChangeForm }) => {
   const [statusLogin, setStatusLogin] = useState(false);
   const { handleSubmit, control, errors } = useForm({
     validationSchema: schemaSignUp,
@@ -84,7 +84,7 @@ export const SignUp = ({ addNewuser, setTemp }) => {
       <Button htmlType="submit" type="primary">
         Create Account
       </Button>
-      <Button onClick={() => setTemp(false)}>go to login</Button>
+      <Button onClick={() => setChangeForm(false)}>go to login</Button>
     </CustomForm>
   );
 };

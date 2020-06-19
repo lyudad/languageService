@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button } from "antd";
-import { CustomInput } from "../inputs";
-import { schemaLogin } from "../../../../Helpers/Auth/schema";
+import { CustomInput } from "Components/Blocks/Auth/Blocks/CustomInput"
+import { schemaLogin } from "Helpers/Auth/schema";
 
 import {
   InputContainer,
@@ -12,7 +12,7 @@ import {
   CustomMsg,
 } from "../styles";
 
-export const Login = ({ login, setTemp }) => {
+export const Login = ({ login, setChangeForm }) => {
   const [statusLogin, setStatusLogin] = useState(false);
   const { handleSubmit, control, errors } = useForm({
     validationSchema: schemaLogin,
@@ -58,7 +58,7 @@ export const Login = ({ login, setTemp }) => {
         Login
       </Button>
 
-      <Button onClick={() => setTemp(true)}>go to signUp</Button>
+      <Button onClick={() => setChangeForm(true)}>go to signUp</Button>
     </CustomForm>
   );
 };

@@ -15,7 +15,7 @@ export default () => {
   const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['signUp', 'login']
+    whitelist: ['auth']
   }
   const persistedReducer = persistReducer(persistConfig, rootReducer)
 

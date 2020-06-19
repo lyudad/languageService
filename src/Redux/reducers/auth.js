@@ -1,17 +1,20 @@
 import { createReducer } from "Helpers/redux";
 
-import { LOGIN } from "../actions/login";
+import { AUTH } from "Redux/actions/auth";
 
 const initialState = {
   user: {
+    username: "",
     email: "",
     password: "",
+    gender: "",
+    id: null,
   },
   isAuth: false,
 };
 
-const loginReducer = {
-  [LOGIN]: (state, action) => {
+const authReducer = {
+  [AUTH]: (state, action) => {
     return {
       ...state,
       user: action.data,
@@ -20,4 +23,4 @@ const loginReducer = {
   },
 };
 
-export default createReducer(initialState, loginReducer);
+export default createReducer(initialState, authReducer);

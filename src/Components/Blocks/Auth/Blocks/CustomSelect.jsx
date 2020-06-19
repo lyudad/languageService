@@ -1,11 +1,7 @@
 import React from "react";
-import { Input, Select, Checkbox } from "antd";
+import { Select } from "antd";
 
 const { Option } = Select;
-
-export const CustomInput = (placeholder) => {
-  return <Input placeholder={placeholder} style={{ width: 240 }} />;
-};
 
 export const CustomSelect = (defaultValue, values) => {
   return (
@@ -19,8 +15,4 @@ export const CustomSelect = (defaultValue, values) => {
       })}
     </Select>
   );
-};
-
-export const CustomCheckbox = () => {
-  return <Checkbox defaultChecked />;
 };
