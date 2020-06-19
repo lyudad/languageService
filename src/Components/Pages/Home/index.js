@@ -1,12 +1,12 @@
 import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
+
+import {getContent} from 'Redux/selectors/homepage'
 
 import {Home} from './Home'
-import {ShowContentAction} from "../../../Redux/actions/homepage.actions"
 
-const actions =  {
-    ShowContentAction
-}
+const selector = createStructuredSelector({
+    content: getContent
+})
 
-
- 
-export const HomePage = connect (null, actions)(Home)
+export default connect(selector)(Home)

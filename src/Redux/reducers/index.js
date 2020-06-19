@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 
-import industries from './industries'
-import {homepage} from "./homepage.reducers"
+import homepage from "./homepage"
 
 const appReducer = combineReducers({
-  homepage,
-  // industries,
+    homepage
 })
 
 export default appReducer
