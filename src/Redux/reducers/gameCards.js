@@ -58,13 +58,15 @@ const initialState = {
       ru: "ворчать, жаловаться",
     },
   ],
+  learnedWords: [],
 };
 
- const gameCardsReducer = {
-    [ADD_TO_LEARNED_WORDS]: (state, action) => {
-        console.log(action)
-        return state;
-    }
-}
+const gameCardsReducer = {
+  [ADD_TO_LEARNED_WORDS]: (state, action) => {
+    let newlearnedWords = state.learnedWords;
+    newlearnedWords.push(action.data);
+    return { ...state, learnedWords:newlearnedWords };
+  },
+};
 
-export default createReducer(initialState, gameCardsReducer)
+export default createReducer(initialState, gameCardsReducer);

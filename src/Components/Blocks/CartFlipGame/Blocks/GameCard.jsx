@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactCardFlip from "react-card-flip";
-import { Card } from "antd";
-import { GameCardButton } from "../styles";
+import { Card as CardComponent } from "antd";
+import { GameCardButton } from "Components/Blocks/CartFlipGame/styles";
+import { set } from "lodash";
 
-export const GameCard = ({ vocabulary }) => {
+export const GameCard = ({ vocabulary, addToLearnedWords }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [wordlist, setWordlist] = useState(vocabulary);
-  const [indexWord, setIndexWord] = useState(0);
-
-  const [studiedWords, setStudiedWords] = useState([]);
-
-  //const [endGame, setEndGame] = useState(false);
+  // const [endGame, setEndGame] = useState(false);
 
   useEffect(() => {
-    console.log(`>>> render <<<`);
+    console.log(`render`, vocabulary);
   });
 
   const frontGreenButtonClick = () => {
@@ -22,47 +18,58 @@ export const GameCard = ({ vocabulary }) => {
   const frontRedButtonClick = () => {
     setIsFlipped(!isFlipped);
   };
-
   const backGreenButtonClick = () => {
     setIsFlipped(!isFlipped);
-    let newStudiedWords = studiedWords;
-    newStudiedWords.push(wordlist[indexWord]);
-    if (indexWord !== wordlist.length - 1) {
-      setIndexWord(indexWord + 1);
-    } else {
-      //setEndGame(true);
-    }
+    addToLearnedWords(vocabulary.shift());
   };
   const backRedButtonClick = () => {
     setIsFlipped(!isFlipped);
-    if (indexWord !== wordlist.length - 1) {
-      setIndexWord(indexWord + 1);
-    } else {
-      //setEndGame(true);
-    }
+    vocabulary.push(vocabulary.shift());
   };
 
-  return (
-     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+  // для End Game сделать отдельную переменную?
+  // const backRedButtonClick = () => {
+  //   if (vocabulary.length) {
+  //     setIsFlipped(!isFlipped);
+  //     vocabulary.push(vocabulary.shift());
+  //   } else setEndGame(true);
+  // };
+
+  return vocabulary.length ? (
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <div className="site-card-border-less-wrapper">
-        <Card title="Card Flip Game" bordered={false} style={{ width: 300 }}>
-          <p> </p>
-          <p>{wordlist[indexWord].ru}</p>
-          <p> </p>
-          <GameCardButton red onClick={frontRedButtonClick}></GameCardButton>
-          <GameCardButton onClick={frontGreenButtonClick}></GameCardButton>
-        </Card>
+        <CardComponent
+          title="Card Flip Game"
+          bordered={false}
+          style={{ width: 300 }}
+        >
+          <p></p>
+          <p>{vocabulary[0].ru}</p>
+          <p></p>
+          <GameCardButton red onClick={frontRedButtonClick}>
+            Not
+          </GameCardButton>
+          <GameCardButton onClick={frontGreenButtonClick}>Know</GameCardButton>
+        </CardComponent>
       </div>
 
       <div className="site-card-border-less-wrapper">
-        <Card title="Card title" bordered={false} style={{ width: 300 }}>
-          <p> </p>
-          <p>{wordlist[indexWord].en}</p>
-          <p> </p>
-          <GameCardButton red onClick={backRedButtonClick}></GameCardButton>
-          <GameCardButton onClick={backGreenButtonClick}></GameCardButton>
-        </Card>
+        <CardComponent
+          title="Card title"
+          bordered={false}
+          style={{ width: 300 }}
+        >
+          <p></p>
+          <p>{vocabulary[0].en}</p>
+          <p></p>
+          <GameCardButton red onClick={backRedButtonClick}>
+            Not
+          </GameCardButton>
+          <GameCardButton onClick={backGreenButtonClick}>Know</GameCardButton>
+        </CardComponent>
       </div>
     </ReactCardFlip>
+  ) : (
+    <p>end game</p>
   );
 };
