@@ -7,13 +7,15 @@ import * as routes from "Constants/routes";
 
 import Categories from "./Pages/Categories";
 import CardFlipGame from "Components/Blocks/CartFlipGame/index";
+import { Auth } from 'Components/Blocks/index' // from conflict
+
 
 class App extends PureComponent {
   render() {
     const { location } = this.props;
     return (
       <Switch location={location}>
-        <Route component={CardFlipGame} exact path={routes.initial} />
+        <Route path="/game" component={CardFlipGame} />
         <Redirect to="/" />
       </Switch>
     );
@@ -22,6 +24,7 @@ class App extends PureComponent {
 
 const actions = {};
 
-const selector = createStructuredSelector({});
-
+const selector = createStructuredSelector({
+  
+}) // from conflict
 export default connect(selector, actions)(App);
