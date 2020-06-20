@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect'
 import * as routes from 'Constants/routes'
 
 import Categories from './Pages/Categories'
-import { Auth } from 'Components/Blocks'
+import { Auth } from 'Components/Blocks/index'
 
 
 class App extends PureComponent {

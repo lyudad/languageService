@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import { authAction } from "Redux/actions/auth";
 
 export const Auth = ({ authUser }) => {
-  console.log(authUser); //undefined
-
   const [changeForm, setChangeForm] = useState(true);
   const [usersDB, setUsersDB] = useState({
     users: [
@@ -30,7 +28,7 @@ export const Auth = ({ authUser }) => {
   useEffect(() => {
     console.log(`render`);
   });
-    // useCallback ?
+  // useCallback ?
   const addNewuser = (data) => {
     let user = getUserByEmail(data);
     if (isEmpty(user)) {
@@ -87,6 +85,4 @@ export const Auth = ({ authUser }) => {
 const mapStateToProps = (store) => {};
 const mapDispathToProps = {
   authUser: authAction,
-};
-
-export default connect(null, mapDispathToProps)(Auth);
+}
