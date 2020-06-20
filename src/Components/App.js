@@ -6,6 +6,8 @@ import { createStructuredSelector } from 'reselect'
 import * as routes from 'Constants/routes'
 
 import Categories from './Pages/Categories'
+import { Auth } from 'Components/Blocks/index'
+
 
 class App extends PureComponent {
 
@@ -13,17 +15,19 @@ class App extends PureComponent {
     const { location } = this.props
     return (
         <Switch location={location}>
-          <Route component={Categories} exact path={routes.initial} />
+          <Route component={Auth} exact path={routes.initial} />
           <Redirect to="/" />
         </Switch>
     )
   }
 }
+// import { from } from 'rxjs'
 
 const actions = {
 }
 
 const selector = createStructuredSelector({
+  
 })
 
 export default connect(

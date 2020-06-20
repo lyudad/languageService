@@ -1,5 +1,4 @@
-import Cards from './Cards'
+import Cards from "./Cards";
+import Auth from "Components/Blocks/Auth/index";
 
-export {
-  Cards,
-}
+export { Cards, Auth };
