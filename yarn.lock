@@ -8973,6 +8973,11 @@ react-calendar@^3.0.0:
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
 
+react-card-flip@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/react-card-flip/-/react-card-flip-1.0.10.tgz#f3eab968f2cba6de6eccb84cf73bcaf6b53fb974"
+  integrity sha512-BqK6PmP+L/xmcH1AoMuirbxRuDIiaNy3r8734GJQqEyIWoW8L4j2c/di6mbNg+I2rGue3tLH1I9QbJLd7M89ww==
+
 react-date-picker@^7.9.0:
   version "7.11.1"
   resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-7.11.1.tgz#14c035040e5931b1d6dd890538a1c15d7ded9118"
@@ -11865,8 +11870,4 @@ yup@^0.29.1:
     lodash-es "^4.17.11"
     property-expr "^2.0.2"
     synchronous-promise "^2.0.10"
-<<<<<<< HEAD
     toposort "^2.0.2"
-=======
-    toposort "^2.0.2"
->>>>>>> develop
