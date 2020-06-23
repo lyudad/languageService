@@ -5,15 +5,10 @@ import CardFlipGame from "Components/Blocks/CartFlipGame/CardFlipGame";
 import { getVocabulary } from "Redux/selectors/vocabulary";
 import { addToLearnWordsActions } from "Redux/actions/gameCards";
 
-
 const selector = createStructuredSelector({
   vocabulary: getVocabulary,
 });
-// const mapStateToProps = (store) => {
-//     return {
-//       vocabulary: getVocabulary(store),
-//     };
-//   };
+
 const mapDispathToProps = {
   addToLearnedWords: addToLearnWordsActions,
 };

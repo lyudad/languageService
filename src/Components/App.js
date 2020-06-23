@@ -28,5 +28,5 @@ const actions = {};
 
 const selector = createStructuredSelector({
   
-}) // from conflict
+})
 export default connect(selector, actions)(App);

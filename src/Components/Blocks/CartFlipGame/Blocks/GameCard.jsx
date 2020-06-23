@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from "react";
-import ReactCardFlip from "react-card-flip";
-import { Card as CardComponent } from "antd";
-import { GameCardButton } from "Components/Blocks/CartFlipGame/styles";
-import { set } from "lodash";
+import { useCallbackOne } from "use-memo-one";
+
+import { Card } from "Components/Blocks/CartFlipGame/Blocks/Card";
+import { GameBox } from "Components/Blocks/CartFlipGame/styles";
+
+
 
 export const GameCard = ({ vocabulary, addToLearnedWords }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  // const [endGame, setEndGame] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(true);
+  const [indexWord, setIndexWord] = useState(0);
+  const [prevIndexWord, setPrevIndexWord] = useState(0);
+  const [nativeWord, setNativeWord] = useState(vocabulary[0].ru);
+  const [translatedWord, setTranslatedWord] = useState(vocabulary[0].en);
+  const [startGame, setStartGame] = useState(true);
 
   useEffect(() => {
-    console.log(`render`, vocabulary);
-  });
+    if (indexWord !== prevIndexWord) {
+      setNativeWord(vocabulary[indexWord].ru);
+      setPrevIndexWord(indexWord);
+    }
+  }, [indexWord, prevIndexWord]);
+
+  useEffect(() => {
+    if (prevIndexWord !== 0 && indexWord == prevIndexWord) {
+      setIsFlipped(!isFlipped);
+      setTranslatedWord(vocabulary[indexWord].en);
+    }
+  }, [indexWord, prevIndexWord]);
 
   const frontGreenButtonClick = () => {
     setIsFlipped(!isFlipped);
@@ -18,57 +34,43 @@ export const GameCard = ({ vocabulary, addToLearnedWords }) => {
   const frontRedButtonClick = () => {
     setIsFlipped(!isFlipped);
   };
+
   const backGreenButtonClick = () => {
-    setIsFlipped(!isFlipped);
-    addToLearnedWords(vocabulary.shift());
+    nextWord();
+    addToLearnedWords(vocabulary[indexWord]);
   };
   const backRedButtonClick = () => {
-    setIsFlipped(!isFlipped);
-    vocabulary.push(vocabulary.shift());
+    nextWord();
   };
-
-  // для End Game сделать отдельную переменную?
-  // const backRedButtonClick = () => {
-  //   if (vocabulary.length) {
-  //     setIsFlipped(!isFlipped);
-  //     vocabulary.push(vocabulary.shift());
-  //   } else setEndGame(true);
-  // };
-
-  return vocabulary.length ? (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-      <div className="site-card-border-less-wrapper">
-        <CardComponent
-          title="Card Flip Game"
-          bordered={false}
-          style={{ width: 300 }}
-        >
-          <p></p>
-          <p>{vocabulary[0].ru}</p>
-          <p></p>
-          <GameCardButton red onClick={frontRedButtonClick}>
-            Not
-          </GameCardButton>
-          <GameCardButton onClick={frontGreenButtonClick}>Know</GameCardButton>
-        </CardComponent>
-      </div>
-
-      <div className="site-card-border-less-wrapper">
-        <CardComponent
-          title="Card title"
-          bordered={false}
-          style={{ width: 300 }}
-        >
-          <p></p>
-          <p>{vocabulary[0].en}</p>
-          <p></p>
-          <GameCardButton red onClick={backRedButtonClick}>
-            Not
-          </GameCardButton>
-          <GameCardButton onClick={backGreenButtonClick}>Know</GameCardButton>
-        </CardComponent>
-      </div>
-    </ReactCardFlip>
+  const nextWord = () => {
+    if (indexWord !== vocabulary.length - 1) {
+      setIndexWord(indexWord + 1);
+    } else {
+      setStartGame(false);
+    }
+  };
+  return startGame ? (
+    <GameBox>
+      {isFlipped ? (
+        <Card
+          title={"Front side"}
+          word={nativeWord}
+          greenBtnClick={frontGreenButtonClick}
+          redBtnClick={frontRedButtonClick}
+          textOnRedBtn={"Not"}
+          textOnGreenBtn={"Know"}
+        />
+      ) : (
+        <Card
+          title={"Backside"}
+          word={translatedWord}
+          greenBtnClick={backGreenButtonClick}
+          redBtnClick={backRedButtonClick}
+          textOnRedBtn={"Not"}
+          textOnGreenBtn={"Know"}
+        />
+      )}
+    </GameBox>
   ) : (
     <p>end game</p>
   );

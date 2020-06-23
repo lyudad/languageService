@@ -10,12 +10,12 @@ const initialState = {
     {
       id: 1,
       en: "abandon",
-      ru: "оставить, забросить",
+      ru: "оставить",
     },
     {
       id: 2,
       en: "abate",
-      ru: "уменьшаться, ослабевать",
+      ru: "уменьшаться",
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ const initialState = {
     {
       id: 2077,
       en: "grumble",
-      ru: "ворчать, жаловаться",
+      ru: "ворчать",
     },
   ],
   learnedWords: [],
