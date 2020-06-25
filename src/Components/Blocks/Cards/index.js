@@ -8,7 +8,7 @@ import  {Card}  from 'antd';
 const { Meta } = Card;
 
 export const Cards = ({elem}) => {
-    
+    console.log(elem)
     return (
 
 <MainContainer>

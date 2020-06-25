@@ -3,40 +3,26 @@ import YouTube from 'react-youtube';
 
 const PlayVideoYoutube = ({videoId}) => {
 
-    const onReady = (event) => {
-        console.log(`YouTube Player object for videoId: "${this.state.videoId}" has been saved to state.`); // eslint-disable-line
+    const onPlay = (event) => {
         this.setState({
             player: event.target,
         });
-    }
-
-    // onPlay = (event) => {
-    //     this.setState({
-    //         title: this.state.player.getVideoData().title,
-    //     });
-    // }
-
-    // onPlayVideo = () => {
-    //     this.state.player.playVideo();
-    // }
-    //
-    // onPauseVideo = () => {
-    //     this.state.player.pauseVideo();
-    // }
-    //
-    // onChangeVideo = () => {
-    //     this.setState({
-    //         videoId: this.state.videoId === videoIdA ? videoIdB : videoIdA,
-    //     });
-    // }
-
+    };
     
-        return (
-            <div>
-                <YouTube videoId={videoId}/>
-            </div>
-        );
-   
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+        },
+    };
+    
+    return (
+        <div>
+            <YouTube videoId={videoId} opts={opts} onReady={this.onPlay}/>
+        </div>
+    );
 }
 
 export default PlayVideoYoutube
