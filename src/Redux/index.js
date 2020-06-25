@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 
-// import { persistStore, persistReducer } from 'redux-persist'
-// import storage from 'redux-persist/lib/storage'
+ import { persistStore, persistReducer } from 'redux-persist'
+ import storage from 'redux-persist/lib/storage'
 
 import thunk from 'redux-thunk'
 import apiMiddlware from './middlewares/api'
@@ -13,17 +13,20 @@ export default () => {
   
   
   const middlewares = [apiMiddlware, thunk, socketMiddlware]
-  // const persistConfig = {
-  //   key: 'root',
-  //   storage
-  // }
-  // const persistedReducer = persistReducer(persistConfig, rootReducer)
+  const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['auth']
+  }
+  const persistedReducer = persistReducer(persistConfig, rootReducer)
 
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   
   const enhancer = composeEnhancers(applyMiddleware(...middlewares))
+  const store = createStore(persistedReducer, enhancer)
+  const persistor = persistStore(store)
 
-  const store = createStore(appReducer, window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
-  return {store};
+  return { store, persistor }
+
 }

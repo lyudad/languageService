@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { PureComponent } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+import * as routes from "Constants/routes";
 
-import 'antd/dist/antd.css';
-import Categories from './Pages/Categories'
-
+import Categories from "./Pages/Categories"
 import {Home} from "./Pages/Home/Home"
-// import './styles.js';
+import CardFlipGame from "Components/Blocks/CartFlipGame/index"
+import { Auth } from 'Components/Blocks/index' 
+import 'antd/dist/antd.css';
 
-
-function App() {
+class App extends PureComponent {
+  render() {
+    const { location } = this.props;
     return (
-        <Router>
-            <Switch>
-                <Route path="/" component={Home} exact/>
-                <Route path="/categories" component={Categories}/>
-            </Switch>
-        </Router>
+      <Switch location={location}>
+        <Route path="/home" component={Home} />
+        <Route path="/game" component={CardFlipGame} />
+        <Route path="/auth" component={Auth} />
+        <Redirect to="/" />
+      </Switch>
     );
+  }
 }
+// import { from } from 'rxjs'
 
-export default App;
 
+const actions = {};
+
+const selector = createStructuredSelector({
+  
+})
+export default connect(selector, actions)(App);
 
