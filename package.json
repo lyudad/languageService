@@ -6,6 +6,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@material-ui/core": "^1.2.3",
+    "@u-wave/react-youtube": "^0.7.1",
     "@wojtekmaj/react-daterange-picker": "^2.0.0",
     "antd": "^3.26.18",
     "axios": "^0.18.0",
