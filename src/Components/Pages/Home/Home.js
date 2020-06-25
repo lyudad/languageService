@@ -63,52 +63,6 @@ export const Home = ({data, content}) => {
         },
     ];
 
-    const contentCard = [
-        {
-            id: 1,
-            name: "Буква «A»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/a-letter.png",
-            type: "video",
-            difficulty: 3,
-        },
-        {
-            id: 2,
-            name: "Буква «B»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/b-letter.png",
-            type: "video",
-            difficulty: 3,
-        },
-        {
-            id: 3,
-            name: "Буква «C»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/c-letter.png",
-            type: "image",
-            difficulty: 3,
-        },
-        {
-            id: 4,
-            name: "Буква «D»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/d-letter.png",
-            type: "image",
-            difficulty: 3,
-        },
-        {
-            id: 5,
-            name: "Буква «E»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/e-letter.png",
-            type: "video",
-            difficulty: 3,
-        },
-        {
-            id: 6,
-            name: "Video",
-            url: "https://youtu.be/MixZfUIiSvY",
-            type: "image",
-            difficulty: 3,
-
-        },
-    ];
-
 /////Menu elenent
 
     const handleClick = (e) => {
@@ -124,12 +78,12 @@ export const Home = ({data, content}) => {
         </Col>
     )
 
-    const sliderCards = (item) => {
-        return (
-            <div>
-                <ContentCarousel elem={item.url}/>
-            </div>)
-    }
+    // const sliderCards = (item) => {
+    //     return (
+    //         <div>
+    //             <ContentCarousel elem={item.url}/>
+    //         </div>)
+    // }
 
     return (
         <Layout >
@@ -164,10 +118,8 @@ export const Home = ({data, content}) => {
                         <Col span={8}> <GameStyle alt="Game1" name="Game1"/></Col>
                         <Col span={8}> <GameStyle alt="Game2" name="Game2"/></Col>
                         <Col span={8}> <GameStyle alt="Game3" name="Game3"/></Col>
-
-                        <PlayVideoYoutube videoId="MixZfUIiSvY"/>
-
                         {contentCard.map(item => renderCards(item))}
+                        <PlayVideoYoutube videoId="_nBlN9yp9R8"/>
 
                         {/*<Col span={18}>
                          {contentCard.map(item => sliderCards(item))}

@@ -12,7 +12,7 @@ import { ConnectedRouter } from 'react-router-redux'
 
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import CreatorStore from './Redux'
+import CreateStore from './Redux'
 
 
 const store  = CreateStore()

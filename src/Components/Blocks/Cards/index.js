@@ -5,33 +5,27 @@ import {
 
 
 import  {Card}  from 'antd';
-const { Meta } = Card;
+const {Meta} = Card;
 
 export const Cards = ({elem}) => {
     console.log(elem)
     return (
-
-<MainContainer>
-
+        <MainContainer>
             <Card
                 hoverable
                 style={{ width: 240 }}
                 cover={<img alt="example" src={elem.url}  style={{height: "240px"}} />}
-
             >
-            <Meta title={elem.name}/>
+                <Meta title={elem.name}/>
                 <div>
                     Type: {elem.type}
                 </div>
-              <div>
-                Difficulty: {elem.difficulty}
-              </div>
-
+                <div>
+                    Difficulty: {elem.difficulty}
+                </div>
             </Card>
-          </MainContainer>
-
-         
+        </MainContainer>
     )
-  }
+}
 
 

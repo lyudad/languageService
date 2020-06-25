@@ -11,4 +11,4 @@ const rootReducer = combineReducers({
   gameCards:gameCardsReducer
 })
 
-export default appReducer
+export default rootReducer

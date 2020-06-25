@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 
 const PlayVideoYoutube = ({videoId}) => {
 
-    const onPlay = (event) => {
+    const onPause = (event) => {
         this.setState({
             player: event.target,
         });
@@ -20,7 +20,7 @@ const PlayVideoYoutube = ({videoId}) => {
     
     return (
         <div>
-            <YouTube videoId={videoId} opts={opts} onReady={this.onPlay}/>
+            <YouTube videoId={videoId} opts={opts} onReady={this.onPause}/>
         </div>
     );
 }

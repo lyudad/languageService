@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import apiMiddlware from './middlewares/api'
 import socketMiddlware from './middlewares/socket'
 
-import appReducer from './reducers'
+import rootReducer from './reducers'
 
 export default () => {
   
