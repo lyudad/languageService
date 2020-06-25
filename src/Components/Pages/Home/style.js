@@ -37,3 +37,29 @@ export const FooterStyle = styled.div`
   min-height: 50px;
   
 `
+
+
+export const CarouselStyle = styled.div`
+    border: 2px solid blue;
+    text-align: center;
+    height: 250px
+    line-height: 20px;
+    background-color: #364d79;
+    overflow: hidden;
+    margin: 5px 50px
+    
+    color: #fff;
+    justify-content: center;
+`
+
+// .ant-carousel .slick-slide {
+//     text-align: center;
+//     height: 160px;
+//     line-height: 160px;
+//     background: #364d79;
+//     overflow: hidden;
+// }
+//
+// .ant-carousel .slick-slide h3 {
+//     color: #fff;
+// }
