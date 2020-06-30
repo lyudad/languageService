@@ -3,11 +3,12 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import * as routes from "Constants/routes";
+// import * as routes from "Constants/routes";
 
-import Categories from "./Pages/Categories"
+// import Categories from "./Pages/Categories"
 import CardFlipGame from "Components/Blocks/CartFlipGame/index"
 import { Auth } from 'Components/Blocks/index' 
+import { ProfilePage } from "Components/Blocks/index"
 
 
 class App extends PureComponent {
@@ -16,13 +17,13 @@ class App extends PureComponent {
     return (
       <Switch location={location}>
         <Route path="/game" component={CardFlipGame} />
-        <Route path="/auth" component={Auth} />
+        <Route path="/auth" component={Auth} />   
+        <Route path="/profile" component={ProfilePage} />     
         <Redirect to="/" />
       </Switch>
     );
   }
 }
-// import { from } from 'rxjs'
 
 const actions = {};
 
