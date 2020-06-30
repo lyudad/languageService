@@ -25,7 +25,7 @@ export const UserDataField = ({ title, value, edit }) => {
   return isEdit ? (
     <div>
       <EditField
-        defaultValue={value}
+        //defaultValue={value}
         suffix={<CloseCircleOutlined onClick={headlerChangeField} />}
         addonAfter={<CheckCircleOutlined onClick={headlerAcceptEditUserData} />}
         onChange={ChangeValue}
@@ -33,7 +33,7 @@ export const UserDataField = ({ title, value, edit }) => {
     </div>
   ) : (
     <UserData>
-      {value}
+      {title}: {value}
       <Edit onClick={headlerChangeField} />
     </UserData>
   );

@@ -9,9 +9,13 @@ import {
   editPasswordAction,
 } from "Redux/actions/profile";
 
-const selector = createStructuredSelector({
-  user: getUser,
+const mapStateToProps = (store)=> ({
+  user: store.auth.user,
+
 });
+// const selector = createStructuredSelector({
+//   user: getUser,
+// });
 
 const mapDispathToProps = {
   editEmail: editEmailAction,
@@ -19,4 +23,4 @@ const mapDispathToProps = {
   editPassword: editPasswordAction,
 };
 
-export default connect(selector, mapDispathToProps)(ProfilePage);
+export default connect(mapStateToProps, mapDispathToProps)(ProfilePage);
