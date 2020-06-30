@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
@@ -11,6 +11,8 @@ import {
 } from "Components/Blocks/ProfilePage/styles";
 
 export const User = ({ user, editEmail, editUserName, editPassword }) => {
+  const [test, setTest] = useState(false)
+
   console.log(`User Render`)
   const userName = user.username;
   const email = user.email;
@@ -22,8 +24,10 @@ export const User = ({ user, editEmail, editUserName, editPassword }) => {
       <ProfileTitle>My Profile</ProfileTitle>
       <UserInformation>
         <Avatar size={64} icon={<UserOutlined />} />
-        <UserDataField title={"Name"} value={userName} edit={editUserName} />
-        <UserDataField title={"Email"} value={email} edit={editEmail} />
+        <UserDataField title={"Name"} ViewEditInput={userName} edit={editUserName} test={test}
+          setTest={setTest}/>
+        <UserDataField title={"Email"} ViewEditInput={email} edit={editEmail} test={test}
+          setTest={setTest}/>
         <UserData>Gender: {gender}</UserData>
         <UserData>ID: {id}</UserData>
       </UserInformation>

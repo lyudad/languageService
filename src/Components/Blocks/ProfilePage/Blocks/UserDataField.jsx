@@ -8,14 +8,17 @@ import {
   EditField,
 } from "Components/Blocks/ProfilePage/styles";
 
-export const UserDataField = ({ title, value, edit }) => {
+export const UserDataField = ({ title, ViewEditInput, edit, test, setTest }) => {
   console.log(`UserDataField Render`)
   const [isEdit, setIsEdit] = useState(false);
-  const [changeInput, setChangeInput] = useState(value);
+  const [changeInput, setChangeInput] = useState(ViewEditInput);  
+  
+
 
   const headlerAcceptEditUserData = () => {
     setIsEdit(!isEdit);
     edit(changeInput);
+    setTest(!test)
   };
   const headlerChangeField = () => {
     setIsEdit(!isEdit);
@@ -25,7 +28,7 @@ export const UserDataField = ({ title, value, edit }) => {
   return isEdit ? (
     <div>
       <EditField
-        //defaultValue={value}
+        defaultValue={ViewEditInput}
         suffix={<CloseCircleOutlined onClick={headlerChangeField} />}
         addonAfter={<CheckCircleOutlined onClick={headlerAcceptEditUserData} />}
         onChange={ChangeValue}
@@ -33,7 +36,7 @@ export const UserDataField = ({ title, value, edit }) => {
     </div>
   ) : (
     <UserData>
-      {title}: {value}
+      {title}: {ViewEditInput}
       <Edit onClick={headlerChangeField} />
     </UserData>
   );
