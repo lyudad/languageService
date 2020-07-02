@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuComponent } from "Components/Blocks/ProfilePage/styles";
-import { UserOutlined, SettingOutlined } from "@ant-design/icons";
+import { UserOutlined, SettingOutlined, SafetyCertificateOutlined } from "@ant-design/icons";
 
 export const Menu = () => {
   return (
@@ -13,8 +13,11 @@ export const Menu = () => {
       <MenuComponent.Item key="1" icon={<UserOutlined />}>
         Profile
       </MenuComponent.Item>
-      <MenuComponent.Item key="2" icon={<SettingOutlined spin={true} />}>
+      <MenuComponent.Item key="2" icon={<SettingOutlined />}>
         Settings
+      </MenuComponent.Item>
+      <MenuComponent.Item key="3" icon={<SafetyCertificateOutlined />}>
+        Security
       </MenuComponent.Item>
     </MenuComponent>
   );

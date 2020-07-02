@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
 import { Menu } from "Components/Blocks/ProfilePage/Blocks/Menu";
 import { User } from "Components/Blocks/ProfilePage/Blocks/User";
 import { UserResults } from "Components/Blocks/ProfilePage/Blocks/UserResults";
 
-const ProfilePage = ({ user, editEmail, editUserName, editPassword }) => {
-  // const [test, setTest] = useState(false)
-  useEffect(() => {
-    console.log(`useEffect`)
 
+const ProfilePage = ({ user, editEmail, editUserName, editPassword }) => {
+  useEffect(() => {
+    console.log(`useEffect`);
   }, [user]);
 
   return (
@@ -22,12 +21,10 @@ const ProfilePage = ({ user, editEmail, editUserName, editPassword }) => {
           editEmail={editEmail}
           editUserName={editUserName}
           editPassword={editPassword}
-          // test={test}
-          // setTest={setTest}
         />
       </Col>
       <Col xs={2} sm={4} md={6} lg={8} xl={10}>
-        <UserResults />
+        {/* <UserResults /> */}
       </Col>
     </Row>
   );
