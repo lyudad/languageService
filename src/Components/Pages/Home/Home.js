@@ -3,15 +3,16 @@ import {Row, Col, Layout, Menu, Carousel} from 'antd';
 import {BookOutlined, PlayCircleOutlined, SettingOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
-import {Cards} from '../../Blocks/Cards'
-import PlayVideoYoutube from '../../Blocks/YouTube'
+import {Cards} from 'Components/Blocks/Cards'
+import PlayVideoYoutube from 'Components/Blocks/YouTube'
 import {HeaderStyle, GameStyle, FooterStyle, CarouselStyle} from './style'
 
 const {SubMenu} = Menu;
 
-export const Home = ({data}) => {
+export const Home = ({data, content}) => {
 
     console.log("data>>>>", data);
+    console.log("content>>>>", content);
 
     const contentCard = [
         {
