@@ -13,16 +13,17 @@ export const Cards = ({elem}) => {
         <MainContainer>
             <Card
                 hoverable
-                style={{ width: 240 }}
-                cover={<img alt="example" src={elem.url}  style={{height: "240px"}} />}
+
+                cover={<img alt="example" src={elem.url}/>}
             >
                 <Meta title={elem.name}/>
+                {/*
                 <div>
                     Type: {elem.type}
                 </div>
                 <div>
                     Difficulty: {elem.difficulty}
-                </div>
+                </div>*/}
             </Card>
         </MainContainer>
     )

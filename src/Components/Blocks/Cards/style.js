@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 240px;
   height: 100%;
   align-content: flex-start;
   position: relative;
-  margin-bottom: 10px;
+  
   @media screen and (max-width: 799px) {
     flex: 1;
   }

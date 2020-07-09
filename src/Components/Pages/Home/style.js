@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 
-export const Content = styled.div`
-  margin: 0;
-  position: relative;
-  @media screen and (max-width: 500px) {
-    overflow-y: auto;
-    max-height: initial;
-  }
-`
-
 export const HeaderStyle = styled.div`
-  
   background-color: #61dafb;
   min-height: 50px;
 `
@@ -30,21 +20,17 @@ export const GameStyle = styled.div`
   cursor: pointer;
   justify-content: center;
   margin: 10px auto;
-  `
+`
 
 export const FooterStyle = styled.div`
   background-color: #61dafb;
   min-height: 50px;
-  `
+`
 
 export const CarouselStyle = styled.div`
-    border: 2px solid blue;
     text-align: center;
-    height: 250px
-    line-height: 50px;
-    background-color: #364d79;
-    overflow: hidden;
-    margin: 5px 50px
-    color: #fff;
+    border: 1px solid grey;
+    margin: 5px auto;
     justify-content: center;
+    width: 760px;
 `

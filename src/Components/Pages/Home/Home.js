@@ -1,34 +1,30 @@
 import React  from 'react'
-
 import {Row, Col, Layout, Menu, Carousel} from 'antd';
 import {BookOutlined, PlayCircleOutlined, SettingOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 import {Cards} from '../../Blocks/Cards'
-import {ContentCarousel} from '../../Blocks/Carousel'
 import PlayVideoYoutube from '../../Blocks/YouTube'
 import {HeaderStyle, GameStyle, FooterStyle, CarouselStyle} from './style'
 
-const {Content} = Layout;
 const {SubMenu} = Menu;
 
-export const Home = ({data, content}) => {
+export const Home = ({data}) => {
 
     console.log("data>>>>", data);
-    console.log("content>>>>", content);
 
     const contentCard = [
         {
             id: 1,
             name: "Буква «A»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/a-letter.png",
+            url: "_nBlN9yp9R8",
             type: "video",
             difficulty: 3,
         },
         {
             id: 2,
             name: "Буква «B»",
-            url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/b-letter.png",
+            url: "VeQ-Dx2Tqx0",
             type: "video",
             difficulty: 3,
         },
@@ -50,40 +46,35 @@ export const Home = ({data, content}) => {
             id: 5,
             name: "Буква «E»",
             url: "https://lim-english.com/uploads/images/all/alphabet/Alphabet_new/e-letter.png",
-            type: "video",
+            type: "image",
             difficulty: 3,
         },
         {
             id: 6,
             name: "Video",
-            url: "https://youtu.be/MixZfUIiSvY",
-            type: "image",
+            url: "_nBlN9yp9R8",
+            type: "video",
             difficulty: 3,
 
         },
     ];
 
-/////Menu elenent
-
-    const handleClick = (e) => {
-        console.log('click ', e);
-        this.setState({
-            current: e.key,
-        });
-    };
-
-    const renderCards = (item) => (
-        <Col span={8}>
-            <Cards elem={item}/>
-        </Col>
-    )
-
-    // const sliderCards = (item) => {
-    //     return (
-    //         <div>
-    //             <ContentCarousel elem={item.url}/>
-    //         </div>)
-    // }
+    const renderCarousel = (item) => {
+        if ((item.type) === "video") {
+            return (
+                <Col span={4}>
+                    <PlayVideoYoutube videoId={item}/>
+                </Col>
+            )
+        }
+        if ((item.type) === "image") {
+            return (
+                <Col span={4}>
+                    <Cards elem={item}/>
+                </Col>
+            )
+        }
+    }
 
     return (
         <Layout >
@@ -113,32 +104,26 @@ export const Home = ({data, content}) => {
                 </Menu>
             </HeaderStyle>
             <Layout>
-                <Content >
-                    <Row justify="space-around">
-                        <Col span={8}> <GameStyle alt="Game1" name="Game1"/></Col>
-                        <Col span={8}> <GameStyle alt="Game2" name="Game2"/></Col>
-                        <Col span={8}> <GameStyle alt="Game3" name="Game3"/></Col>
-                        {contentCard.map(item => renderCards(item))}
-                        <PlayVideoYoutube videoId="_nBlN9yp9R8"/>
-
-                        {/*<Col span={18}>
-                         {contentCard.map(item => sliderCards(item))}
-                         </Col>*/}
-                        <Col span={8}>
-                            <CarouselStyle>
-                                <Carousel autoplay>
-                                    {contentCard.map(item => {
-                                        return (
-                                            <div>
-                                                <img src={item.url}/>
-                                            </div>
-                                        )
-                                    })}
-                                </Carousel>
-                            </CarouselStyle>
-                        </Col>
-                    </Row>
-                </Content>
+                <Row justify="space-around">
+                    <Col span={8}> <GameStyle alt="Game1" name="Game1"/></Col>
+                    <Col span={8}> <GameStyle alt="Game2" name="Game2"/></Col>
+                    <Col span={8}> <GameStyle alt="Game3" name="Game3"/></Col>
+                </Row>
+                <Row>
+                    <CarouselStyle>
+                        <Carousel
+                            dots={true}
+                            showSides={true}
+                            sidesOpacity={.5}
+                            sideSize={.1}
+                            slidesToScroll={3}
+                            slidesToShow={3}
+                            scrollOnDevice={true}
+                            autoplay>
+                            {contentCard.map(item => ( renderCarousel(item)))}
+                        </Carousel>
+                    </CarouselStyle>
+                </Row>
             </Layout>
             <FooterStyle> Footer </FooterStyle>
         </Layout>

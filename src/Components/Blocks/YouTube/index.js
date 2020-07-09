@@ -8,19 +8,18 @@ const PlayVideoYoutube = ({videoId}) => {
             player: event.target,
         });
     };
-    
+
     const opts = {
-        height: '390',
-        width: '640',
+        height: '300',
+        width: '250',
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
         },
     };
-    
+
     return (
         <div>
-            <YouTube videoId={videoId} opts={opts} onReady={this.onPause}/>
+            <YouTube videoId={videoId.url} opts={opts} onReady={this.onPause}/>
         </div>
     );
 }

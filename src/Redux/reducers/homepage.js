@@ -1,6 +1,6 @@
-const initialState = {
+import {createReducer} from "Helpers/redux";
 
-  
+const initialState = {
 
     contentCard: [
 
@@ -50,14 +50,10 @@ const initialState = {
     showContent: null
 }
 
+
 const homepage = (state = initialState) => {
-    switch ("abc") {
+    return {...state}
+};
+export default createReducer(initialState, homepage);
 
-        default:
-        {
-            return state
-        }
-    }
-} 
 
-export default homepage;
