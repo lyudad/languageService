@@ -3,10 +3,11 @@ import styled from 'styled-components'
 export const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 240px;
   height: 100%;
   align-content: flex-start;
   position: relative;
+  
   @media screen and (max-width: 799px) {
     flex: 1;
   }
@@ -14,7 +15,7 @@ export const MainContainer = styled.div`
     justify-content: center;
   }
   @media screen and (min-width: 1700px) {
-    transform: translateX(-30px);
+    justify-content: center;
   }
   @media screen and (max-width: 950px) {
     justify-content: center;

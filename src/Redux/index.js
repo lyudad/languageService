@@ -10,7 +10,8 @@ import socketMiddlware from './middlewares/socket'
 import rootReducer from './reducers'
 
 export default () => {
-
+  
+  
   const middlewares = [apiMiddlware, thunk, socketMiddlware]
   const persistConfig = {
     key: 'root',
@@ -21,10 +22,11 @@ export default () => {
 
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
+  
   const enhancer = composeEnhancers(applyMiddleware(...middlewares))
   const store = createStore(persistedReducer, enhancer)
   const persistor = persistStore(store)
 
   return { store, persistor }
+
 }

@@ -8,12 +8,14 @@ import { getIndustries } from 'Redux/selectors/industries'
 import Component from './Categories'
 
 const selector = createStructuredSelector({
+
   industries: getIndustries,
-})
+
+});
 
 const actions = {
   onSetHeaderCat: setHeaderCat,
-}
+};
 
 export default connect(
   selector,

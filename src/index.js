@@ -1,5 +1,6 @@
 import React from 'react'
 import { hydrate, render } from 'react-dom'
+
 import { PersistGate } from 'redux-persist/integration/react'
 import 'antd/dist/antd.css';
 
@@ -12,6 +13,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import CreateStore from './Redux'
+
 
 const store  = CreateStore()
 const history = createBrowserHistory()
