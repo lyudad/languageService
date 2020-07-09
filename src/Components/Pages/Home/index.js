@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 
 import { createStructuredSelector } from 'reselect'
-import {Home} from './Home'
+import {Home} from 'Components/Blocks/Home'
 import {getContent} from "Redux/selectors/homepage"
 
 const selector = createStructuredSelector({
